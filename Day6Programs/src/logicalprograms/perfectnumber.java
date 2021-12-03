@@ -1,29 +1,39 @@
-package logicalprograms;
+package LogicalPrograms;
 
-import java.util.Scanner;  
-public class perfectnumber  
-{  
-public static void main(String args[])    
-{  
-long n, sum=0;  
-Scanner sc=new Scanner(System.in);         
-System.out.print("Enter the number: ");  
-n=sc.nextLong();  
-int i=1;  
-while(i <= n/2)  
-{  
-if(n % i == 0)  
-{  
-sum = sum + i;  
-} 
-i++;  
-}  
-if(sum==n)  
-{  
-
-System.out.println(n+" is a perfect number.");  
-} 
-else   
-System.out.println(n+" is not a perfect number.");   
-}  
-}  
+import java.util.Scanner;
+public class perfectNumber {
+    public static void main(String[] args)
+    {
+        int n;
+        
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter a number");
+        n = sc.nextInt();
+        
+        if (isPerfect(n))
+            System.out.println(n + " is a perfect number");
+        else
+            System.out.println(n + " is not a perfect number");
+    }
+    
+    static boolean isPerfect(int n){
+    	int sum = 1;
+    	
+    	if (n == 1)
+    		return false;
+    
+    	for(int i=2;i<n;i++)
+    	{
+    		if (n % i == 0) 
+    		{
+            sum+=i;			
+    	    }
+    	}
+    	
+    	////sum of divisor is equal to n, then n is perfect number 
+       if(sum ==n)
+    	   return true;
+    	
+        return false; 	
+    }
+}
